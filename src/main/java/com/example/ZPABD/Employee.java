@@ -16,6 +16,7 @@ public class Employee {
     private String lastName;
     private String firstName;
     private BigDecimal salary;
+    private LocalDate employmentDate;
 
     public Employee() { super(); }
 
@@ -49,10 +50,13 @@ public class Employee {
         this.salary = salary;
     }
 
+    public LocalDate getEmploymentDate() { return employmentDate; }
+
+    public void setEmploymentDate(LocalDate employmentDate) { this.employmentDate = employmentDate; }
+
     @Override
     public String toString() {
-        return "Employee [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", salary=" + salary
-                + "]";
+        return "Employee [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", salary=" + salary + ", date=" + employmentDate +" ]";
     }
 
 }

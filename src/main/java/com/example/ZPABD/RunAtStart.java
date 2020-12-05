@@ -24,6 +24,7 @@ public class RunAtStart {
         employee.setFirstName("Natalia");
         employee.setLastName("Ciosek");
         employee.setSalary(new BigDecimal("5000"));
+        employee.setEmploymentDate(LocalDate.of(2019, 05, 16));
         employeeRepository.save(employee);
 
         Employee employee2 = new Employee();
