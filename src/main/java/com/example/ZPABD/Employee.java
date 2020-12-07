@@ -2,10 +2,7 @@ package com.example.ZPABD;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Employee {
@@ -17,6 +14,10 @@ public class Employee {
     private String firstName;
     private BigDecimal salary;
     private LocalDate employmentDate;
+
+    @ManyToOne
+    @JoinColumn(name="departmentId")
+    private Department department;
 
     public Employee() { super(); }
 
@@ -54,9 +55,13 @@ public class Employee {
 
     public void setEmploymentDate(LocalDate employmentDate) { this.employmentDate = employmentDate; }
 
+    public Department getDepartment() { return department; }
+
+    public void setDepartment(Department department) { this.department = department; }
+
     @Override
     public String toString() {
-        return "Employee [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", salary=" + salary + ", date=" + employmentDate +" ]";
+        return "Employee [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", salary=" + salary + ", date=" + employmentDate +", department=" + department +" ]";
     }
 
 }

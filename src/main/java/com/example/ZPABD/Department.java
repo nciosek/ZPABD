@@ -8,27 +8,27 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long IDdept;
-    private String NameDept;
+    private Long deptID;
+    private String nameDept;
     private String job;
 
-    @OneToMany(cascade= {CascadeType.REFRESH, CascadeType.REMOVE}, mappedBy = "department")
+    @OneToMany(mappedBy = "department")
     Set<Employee> employees;
 
-    public Long getIDdept() {
-        return IDdept;
+    public Long getDeptID() {
+        return deptID;
     }
 
-    public void setIDdept(Long IDdept) {
-        this.IDdept = IDdept;
+    public void setDeptID(Long deptID) {
+        this.deptID = deptID;
     }
 
     public String getNameDept() {
-        return NameDept;
+        return nameDept;
     }
 
     public void setNameDept(String nameDept) {
-        NameDept = nameDept;
+        this.nameDept = nameDept;
     }
 
     public String getJob() {
@@ -47,8 +47,9 @@ public class Department {
         this.employees = employees;
     }
 
+
     @Override
     public String toString() {
-        return "Department [IDdept=" + IDdept + ", NameDept=" + NameDept + ", Job=" + job + ", Employees=" + employees + "]";
+        return "Department [DeptIT=" + deptID + ", NameDept=" + nameDept + ", Job=" + job + "]";
     }
 }
