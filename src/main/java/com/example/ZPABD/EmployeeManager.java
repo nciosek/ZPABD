@@ -1,13 +1,14 @@
 package com.example.ZPABD;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Optional;
 
-@Component
+@Service
 public class EmployeeManager {
 
     private final EmployeeRepository employeeRepository;
@@ -18,6 +19,22 @@ public class EmployeeManager {
         super();
         this.employeeRepository = employeeRepository;
         this.departmentRepository = departmentRepository;
+    }
+
+    public Optional<Employee> findById(Long id){
+        return employeeRepository.findById(id);
+    }
+
+    public Iterable<Employee> findAll(){
+        return employeeRepository.findAll();
+    }
+
+    public Employee save(Employee employee){
+        return employeeRepository.save(employee);
+    }
+
+    public void deleteById(Long id){
+        employeeRepository.deleteById(id);
     }
 
     @PostConstruct
