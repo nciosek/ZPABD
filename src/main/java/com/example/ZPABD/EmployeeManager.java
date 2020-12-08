@@ -8,13 +8,13 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Component
-public class RunAtStart {
+public class EmployeeManager {
 
     private final EmployeeRepository employeeRepository;
     private final DepartmentRepository departmentRepository;
 
     @Autowired
-    public RunAtStart(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
+    public EmployeeManager(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
         super();
         this.employeeRepository = employeeRepository;
         this.departmentRepository = departmentRepository;
