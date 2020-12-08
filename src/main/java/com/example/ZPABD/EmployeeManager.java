@@ -71,17 +71,17 @@ public class EmployeeManager {
         employee3.setSalary(new BigDecimal("1000"));
         employeeRepository.save(employee3);
 
-        /*Iterable<Employee> emp = employeeRepository.findByFirstName("Natalia");
+        Iterable<Employee> emp = employeeRepository.findByFirstName("Natalia");
         for (Employee e : emp){
             System.out.println("W bazie: " + e);
-        }*/
+        }
         System.out.println(employee);
         System.out.println(employee2);
         System.out.println(employee3);
 
-        Iterable<Employee> emplo = employeeRepository.findAllWhereName("K%");
+        /*Iterable<Employee> emplo = employeeRepository.findAllWhereName("K%");
         for (Employee e : emplo){
             System.out.println("W bazie nazwiska na literę K: \n" + e);
-        }
+        }*/
     }
 }
