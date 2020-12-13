@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/employees")
+@RequestMapping("/api")
 public class ApiApplication {
 
     private EmployeeManager employeeManager;
@@ -17,23 +17,35 @@ public class ApiApplication {
         this.employeeManager = employeeManager;
     }
 
-    @GetMapping("/byId")
+    @GetMapping("/employees/byId")
     public Optional<Employee> getById(@RequestParam Long index){
         return employeeManager.findById(index);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/employees/allEmplo")
     public Iterable<Employee> getAll(){
         return employeeManager.findAll();
     }
 
-    @PostMapping("/saveEmplo")
+    @PostMapping("/employees/saveEmplo")
     public Employee addEmplo(@RequestBody Employee employee){
         return employeeManager.save(employee);
     }
 
-    @DeleteMapping("/deleteEmplo")
+    @DeleteMapping("/employees/deleteEmplo")
     public void deleteEmplo(@RequestParam Long index){
         employeeManager.deleteById(index);
     }
+
+    @PutMapping("/employees/updateEmplo")
+    public Employee updateEmployee(@RequestBody Employee employee){
+        return employeeManager.update(employee);
+    }
+
+    @GetMapping("/employees/nameEmplo")
+    public Iterable<Employee> getByLastName(@RequestParam String index){
+        return employeeManager.findByLastName(index);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package com.example.ZPABD;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapAutoConfiguration;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -36,6 +37,15 @@ public class EmployeeManager {
     public void deleteById(Long id){
         employeeRepository.deleteById(id);
     }
+
+    public Employee update(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    public Iterable<Employee> findByLastName(String lastName){
+        return employeeRepository.findByLastName(lastName);
+    }
+    
 
     @PostConstruct
     public void runAtStart(){
