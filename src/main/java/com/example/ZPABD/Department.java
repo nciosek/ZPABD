@@ -1,5 +1,7 @@
 package com.example.ZPABD;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class Department {
     private String nameDept;
     private String job;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "department")
     Set<Employee> employees;
 

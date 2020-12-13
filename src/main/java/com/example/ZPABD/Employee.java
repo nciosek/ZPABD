@@ -1,5 +1,7 @@
 package com.example.ZPABD;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.persistence.*;
@@ -15,6 +17,7 @@ public class Employee {
     private BigDecimal salary;
     private LocalDate employmentDate;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="departmentId")
     private Department department;

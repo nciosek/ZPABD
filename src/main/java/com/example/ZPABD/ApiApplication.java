@@ -47,5 +47,23 @@ public class ApiApplication {
         return employeeManager.findByLastName(index);
     }
 
+    @GetMapping("/department/byId")
+    public Optional<Department> getByIdDept(@RequestParam Long id){
+        return employeeManager.findByIdDept(id);
+    }
 
+    @GetMapping("/department/allDept")
+    public Iterable<Department> getAllDept(){
+        return employeeManager.findAllDept();
+    }
+
+    @GetMapping("/departemnt/addDept")
+    public Department addDepartment(@RequestBody Department department){
+        return employeeManager.saveDept(department);
+    }
+
+    @DeleteMapping("/department/deleteDept")
+    public void deleteDept(@RequestParam Long index){
+        employeeManager.deleteByIdDept(index);
+    }
 }

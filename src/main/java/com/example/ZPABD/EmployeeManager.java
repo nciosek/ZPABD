@@ -1,7 +1,6 @@
 package com.example.ZPABD;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapAutoConfiguration;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -45,7 +44,22 @@ public class EmployeeManager {
     public Iterable<Employee> findByLastName(String lastName){
         return employeeRepository.findByLastName(lastName);
     }
-    
+
+    public Optional<Department> findByIdDept(Long id){
+        return departmentRepository.findById(id);
+    }
+
+    public Iterable<Department> findAllDept(){
+        return departmentRepository.findAll();
+    }
+
+    public Department saveDept(Department department){
+        return departmentRepository.save(department);
+    }
+
+    public void deleteByIdDept(Long id){
+        departmentRepository.deleteById(id);
+    }
 
     @PostConstruct
     public void runAtStart(){
@@ -72,6 +86,7 @@ public class EmployeeManager {
         employee2.setLastName("Ciepłucha");
         employee2.setDepartment(department);
         employee2.setSalary(new BigDecimal("75000"));
+        employee.setEmploymentDate(LocalDate.of(2020, 02, 27));
         employeeRepository.save(employee2);
 
         Employee employee3 = new Employee();
@@ -81,13 +96,18 @@ public class EmployeeManager {
         employee3.setSalary(new BigDecimal("1000"));
         employeeRepository.save(employee3);
 
+        Employee employee4 = new Employee();
+        employee4.setFirstName("Dawid");
+        employee4.setLastName("Karolewski");
+        employee4.setDepartment(department2);
+        employee4.setSalary(new BigDecimal("1000"));
+        employeeRepository.save(employee4);
+
+
         Iterable<Employee> emp = employeeRepository.findByFirstName("Natalia");
         for (Employee e : emp){
             System.out.println("W bazie: " + e);
         }
-        System.out.println(employee);
-        System.out.println(employee2);
-        System.out.println(employee3);
 
         /*Iterable<Employee> emplo = employeeRepository.findAllWhereName("K%");
         for (Employee e : emplo){
