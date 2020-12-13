@@ -7,12 +7,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/employees")
-public class EmployeeApi {
+public class ApiApplication {
 
     private EmployeeManager employeeManager;
 
     @Autowired
-    public EmployeeApi(EmployeeManager employeeManager) {
+    public ApiApplication(EmployeeManager employeeManager) {
         super();
         this.employeeManager = employeeManager;
     }
