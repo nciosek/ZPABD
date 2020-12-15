@@ -17,7 +17,6 @@ public class Employee {
     private BigDecimal salary;
     private LocalDate employmentDate;
     private Long DeptID;
-    
     private Department department;
 
     public Employee() { super(); }
