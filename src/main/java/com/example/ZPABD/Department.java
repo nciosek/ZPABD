@@ -15,7 +15,8 @@ public class Department {
     private String job;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "department")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "deptID")
     Set<Employee> employees;
 
     public Long getDeptID() {

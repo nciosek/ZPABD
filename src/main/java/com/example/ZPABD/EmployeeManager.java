@@ -74,9 +74,9 @@ public class EmployeeManager {
         departmentRepository.save(department2);
 
         Employee employee = new Employee();
+        employee.setIdDept(department.getDeptID());
         employee.setFirstName("Natalia");
         employee.setLastName("Ciosek");
-        employee.setDepartment(department);
         employee.setSalary(new BigDecimal("5000"));
         employee.setEmploymentDate(LocalDate.of(2019, 05, 16));
         employeeRepository.save(employee);

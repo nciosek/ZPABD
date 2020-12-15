@@ -16,10 +16,8 @@ public class Employee {
     private String firstName;
     private BigDecimal salary;
     private LocalDate employmentDate;
-
-    @JsonManagedReference
-    @ManyToOne
-    @JoinColumn(name="departmentId")
+    private Long DeptID;
+    
     private Department department;
 
     public Employee() { super(); }
@@ -61,6 +59,14 @@ public class Employee {
     public Department getDepartment() { return department; }
 
     public void setDepartment(Department department) { this.department = department; }
+
+    public Long getIdDept() {
+        return DeptID;
+    }
+
+    public void setIdDept(Long idDept) {
+        this.DeptID = idDept;
+    }
 
     @Override
     public String toString() {
