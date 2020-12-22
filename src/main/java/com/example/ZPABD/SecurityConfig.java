@@ -1,6 +1,6 @@
 package com.example.ZPABD;
 
-import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }*/
 
     /* LAB 3 */
-    @Bean
+/*    @Bean
     public UserDetailsService userDetailsService(){
         UserDetails guest = User.withDefaultPasswordEncoder()
                 .username("guest")
@@ -68,3 +68,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 }
+*/
