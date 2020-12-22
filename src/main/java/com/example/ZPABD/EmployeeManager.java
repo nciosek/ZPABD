@@ -45,21 +45,6 @@ public class EmployeeManager {
         return employeeRepository.findByLastName(lastName);
     }
 
-    public Optional<Department> findByIdDept(Long id){
-        return departmentRepository.findById(id);
-    }
-
-    public Iterable<Department> findAllDept(){
-        return departmentRepository.findAll();
-    }
-
-    public Department saveDept(Department department){
-        return departmentRepository.save(department);
-    }
-
-    public void deleteByIdDept(Long id){
-        departmentRepository.deleteById(id);
-    }
 
     @PostConstruct
     public void runAtStart(){

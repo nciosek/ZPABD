@@ -10,11 +10,13 @@ import java.util.Optional;
 public class ApiApplication {
 
     private EmployeeManager employeeManager;
+    private DepartmentManager departmentManager;
 
     @Autowired
-    public ApiApplication(EmployeeManager employeeManager) {
+    public ApiApplication(EmployeeManager employeeManager, DepartmentManager departmentManager) {
         super();
         this.employeeManager = employeeManager;
+        this.departmentManager = departmentManager;
     }
 
     @GetMapping("/employees/byId")
@@ -49,21 +51,29 @@ public class ApiApplication {
 
     @GetMapping("/department/byId")
     public Optional<Department> getByIdDept(@RequestParam Long id){
-        return employeeManager.findByIdDept(id);
+        return departmentManager.findByIdDept(id);
     }
 
     @GetMapping("/department/allDept")
     public Iterable<Department> getAllDept(){
-        return employeeManager.findAllDept();
+        return departmentManager.findAllDept();
     }
 
     @GetMapping("/departemnt/addDept")
     public Department addDepartment(@RequestBody Department department){
-        return employeeManager.saveDept(department);
+        return departmentManager.saveDept(department);
     }
 
     @DeleteMapping("/department/deleteDept")
     public void deleteDept(@RequestParam Long index){
-        employeeManager.deleteByIdDept(index);
+        departmentManager.deleteByIdDept(index);
+    }
+
+    @PutMapping("/department/addToDept")
+    public Employee addEmployeeToDepartment(@RequestParam Long deptId, @RequestParam Long emploId){
+        Department department = departmentManager.findByIdDept(deptId).get();
+        Employee employee = employeeManager.findById(emploId).get();
+        employee.setDepartment(department);
+        return employeeManager.save(employee);
     }
 }
