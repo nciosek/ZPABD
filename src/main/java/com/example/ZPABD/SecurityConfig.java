@@ -29,6 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }*/
 
+    /* LAB 3 */
     @Bean
     public UserDetailsService userDetailsService(){
         UserDetails guest = User.withDefaultPasswordEncoder()
